@@ -2,27 +2,58 @@ fetch('/data')
   .then(function(response) {
     return response.json();
   })
-  .then(function(myJson) {
-    const studentData = myJson;
-    parseData(studentData);
-  }).catch((e) => {console.log("error occured", e)});
+  .then(function(studentData) {
+    // TODO: use something like Object.keys(dailyStats)[0] to get values and aggregate
 
-function parseData(data) {
-    let prevHoursCoding = parseInt(data[0]['07/28/2019']['hoursSpentInEditor'])+parseInt(data[0]['07/28/2019']['hoursSpentInBrowser']);
-    document.getElementById('previous-hours-coding').innerHTML=prevHoursCoding;
-    let prevStandups = data[0]['07/28/2019']['standupsCompleted'];
-    document.getElementById('previous-standup').innerHTML= "7/7";
-    let prevClassHours = data[0]['07/28/2019']['hoursInClass'];
-    document.getElementById('previous-class-hours').innerHTML=prevClassHours;
-    let prevOneOnOnes = data[0]['07/28/2019']['oneOnOneAverage'];
-    document.getElementById('previous-one-on-one').innerHTML=prevOneOnOnes;
+    // figure out all of last week
+    // figure out all of this week
+  
+    let aggregatedStudentData = [
+      {
+        'hoursSpentInEditor': '3',
+        'hoursSpentInBrowser': '5',
+        'standupsCompleted': true,
+        'hoursInClass': '8.5',
+        'oneOnOneAverage': '0.9'
+      },
+      {
+        'hoursSpentInEditor': '10',
+        'hoursSpentInBrowser': '15',
+        'standupsCompleted': true,
+        'hoursInClass': '10',
+        'oneOnOneAverage': '0.8'
+      }
+    ]
 
-    let currentHoursCoding = parseInt(data[1]['07/29/2019']['hoursSpentInEditor'])+parseInt(data[1]['07/29/2019']['hoursSpentInBrowser']);
-    document.getElementById('current-hours-coding').innerHTML=currentHoursCoding;
-    let currentStandups = data[1]['07/29/2019']['standupsCompleted'];
-    document.getElementById('current-standup').innerHTML="7/7";
-    let currentClassHours = data[1]['07/29/2019']['hoursInClass'];
-    document.getElementById('current-class-hours').innerHTML=currentClassHours;
-    let currentOneOnOnes = data[1]['07/29/2019']['oneOnOneAverage'];
-    document.getElementById('current-one-on-one').innerHTML=currentOneOnOnes;
+    parseAndRenderData(aggregatedStudentData);
+  }).catch((e) => {console.log("Error fetching data", e)});
+
+function parseAndRenderData(weeklyStats) {
+      let prevHoursCoding = parseInt(weeklyStats[0]['hoursSpentInEditor'])
+        + parseInt(weeklyStats[0]['hoursSpentInBrowser']);
+      document.getElementById('previous-hours-coding').innerHTML=prevHoursCoding;
+      
+      // This is a boolean that will need to be converted to a string.
+      let prevStandups = weeklyStats[0]['standupsCompleted'];
+      document.getElementById('previous-standup').innerHTML= "7/7";
+      
+      let prevClassHours = weeklyStats[0]['hoursInClass'];
+      document.getElementById('previous-class-hours').innerHTML=prevClassHours;
+      
+      let prevOneOnOnes = weeklyStats[0]['oneOnOneAverage'];
+      document.getElementById('previous-one-on-one').innerHTML=prevOneOnOnes;
+
+      let currentHoursCoding = parseInt(weeklyStats[1]['hoursSpentInEditor'])
+      + parseInt(weeklyStats[1]['hoursSpentInBrowser']);
+      document.getElementById('current-hours-coding').innerHTML=currentHoursCoding;
+      
+      // This is a boolean that will need to be converted to a string.
+      let currentStandups = weeklyStats[1]['standupsCompleted'];
+      document.getElementById('current-standup').innerHTML= "7/7";
+      
+      let currentClassHours = weeklyStats[1]['hoursInClass'];
+      document.getElementById('current-class-hours').innerHTML=currentClassHours;
+      
+      let currentOneOnOnes = weeklyStats[1]['oneOnOneAverage'];
+      document.getElementById('current-one-on-one').innerHTML=currentOneOnOnes;
 }
