@@ -29,10 +29,10 @@
   }
 
   .week-title {
-    font-size: 4em;
+    font-size: 2em;
     text-align: center;
     color: white;
-    margin: 5px 0px 0px 20px;
+    margin: 5px 0px 0px 0px;
     padding-top: 0px;
   }
 
@@ -42,8 +42,6 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 40%;
-    height: 100%;
   }
 
   .card {
@@ -52,8 +50,10 @@
     background-color: white;
     margin-bottom: 20px;
     overflow: hidden;
-    min-height: 160px;
-    max-height: 300px;
+  }
+
+  .goalMet{
+    border-top: 5px solid green;
   }
 
   #color-test {
@@ -61,11 +61,11 @@
   }
 
   .card-title {
-      font-size: 2em;
-      padding: 0px 40px 20px 40px;
+      font-size: 1em;
+      margin: 5px 0px;
   }
 
   .card-text {
       font-size: 1.8rem;
-      padding: 0px 10px 30px 10px
+      margin: 5px 0px;
   }
