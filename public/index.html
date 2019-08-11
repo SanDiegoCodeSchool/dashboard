@@ -10,6 +10,24 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
+<script> var colorThreshold = function () { 
+var passedInput = 0;
+    if (passedInput < 20) {
+    document.getElementById("total-standups").style.color = '#99C262';
+    }
+    // else  
+    // if (passedInput >= 51 && passedInput <70)  
+    // {
+    // document.getElementById("centerbox1").style.backgroundColor = '#F8D347';
+    // }  
+    // else  
+    // if (passedInput <=50)  
+    // {
+    // document.getElementById("centerbox1").style.backgroundColor = '#FF6C60';
+    // }
+ }
+ </script>
+
 <body>
     <div class="container">
         <div class="row">
@@ -22,42 +40,40 @@
                 <p class="card-text" id='previous-hours-coding'>10</p>
             </div>
             <div class="card">
-                <h4 class="card-title">Standups:</h4>
-                <p class="card-text" id='previous-standup'>7/7</p>
+                <h4 class="card-title">Hrs in Class:</h4>
+                <p class="card-text" id='previous-hrs-in-class'>7/7</p>
+            </div>
+        </div>
+        <div class="col" id="current-week">
+            <div class="title">
+                <h4 class="week-title">Current Week</h4>
             </div>
             <div class="card">
-                <h4 class="card-title">2 Cool 4 School:</h4>
-                <p class="card-text" id='previous-class-hours'>30</p>
+                <h4 class="card-title">Hours coding:</h4>
+                <p class="card-text" id='current-hours-coding'>10</p>
             </div>
             <div class="card">
-                <h4 class="card-title">One on ones:</h4>
-                <p class="card-text" id='previous-one-on-one'>80%</p>
+                <h4 class="card-title">Hrs in Class:</h4>
+                <p class="card-text" id='current-hrs-in-class'>7/7</p>
             </div>
         </div>
         <div class="col">
             <div class="title">
-                <h4 class="week-title">Current Week</h4>
-            </div>
-            <div class="card goalMet">
-                <h4 class="card-title">Hours coding:</h4>
-                <p class="card-text" id='current-hours-coding'>10</p>
+                <h4 class="week-title">Total Average</h4>
             </div>
             <div class="card goalMet">
                 <h4 class="card-title">Standups:</h4>
-                <p class="card-text" id='current-standup'>7/7</p>
+                <p class="card-text" id='total-standups'>10</p>
             </div>
             <div class="card goalMet">
-                <h4 class="card-title">2 Cool 4 School:</h4>
-                <p class="card-text" id='current-class-hours'>30</p>
-            </div>
-            <div class="card goalMet">
-                <h4 class="card-title">One on ones:</h4>
-                <p class="card-text" id='current-one-on-one'>80%</p>
+                <h4 class="card-title">One on Ones:</h4>
+                <p class="card-text" id='total-one-on-ones'>7/7</p>
             </div>
         </div>
     </div>
 
     <script src="/main.js"></script>
+    <script>colorThreshold()</script>
 </body>
 
 </html>

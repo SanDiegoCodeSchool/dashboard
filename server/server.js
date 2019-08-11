@@ -11,7 +11,7 @@ app.get('/data', (req, res) => {
            'hoursSpentInBrowser': '5',
            'standupsCompleted': true,
            'hoursInClass': '8.5',
-           'oneOnOneAverage': '0.9'
+           'oneOnOneAverage': '1/1'
          } 
     },{
     '07/29/2019': {
@@ -19,7 +19,7 @@ app.get('/data', (req, res) => {
         'hoursSpentInBrowser': '24',
         'standupsCompleted': true,
         'hoursInClass': '13',
-        'oneOnOneAverage': '1'
+        'oneOnOneAverage': '2/3'
      }
     }]
     res.status(200).send(mockData);

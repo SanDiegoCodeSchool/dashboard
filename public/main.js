@@ -8,6 +8,8 @@ fetch('/data')
     // figure out all of last week
     // figure out all of this week
   
+    //"document.getElementById('id1').style.color = 'red'"
+
     let aggregatedStudentData = [
       {
         'hoursSpentInEditor': '3',
