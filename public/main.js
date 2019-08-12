@@ -1,4 +1,4 @@
-fetch("/data")
+fetch('/data')
   .then(function(response) {
     return response.json();
   })
@@ -7,7 +7,7 @@ fetch("/data")
     renderData(aggregatedStudentData);
   })
   .catch(e => {
-    console.log("Error fetching data", e);
+    console.log('Error fetching data', e);
   });
 
 function parseStudentData(studentData) {
@@ -69,15 +69,22 @@ function parseStudentData(studentData) {
 
 function renderData(aggregatedStudentData) {
   
-  document.getElementById("previous-hours-coding").innerHTML = aggregatedStudentData.hoursSpentCodingPrevious;
-  document.getElementById("previous-class-hours").innerHTML = aggregatedStudentData.hoursInClassPrevious;
+  let { hoursSpentCodingPrevious,
+    hoursInClassPrevious,
+    hoursSpentCodingCurrent,
+    hoursInClassCurrent,
+    totalStandupsCompleted,
+    totalStandups,
+    totalOneOnOnes
+  } = aggregatedStudentData;
+  
+  document.getElementById('hours-spent-coding-previous').innerHTML = hoursSpentCodingPrevious;
+  document.getElementById('hours-in-class-previous').innerHTML = hoursInClassPrevious;
 
-  document.getElementById("current-hours-coding").innerHTML = aggregatedStudentData.hoursSpentCodingCurrent;
-  document.getElementById("current-class-hours").innerHTML = aggregatedStudentData.hoursInClassCurrent;
+  document.getElementById('hours-spent-coding-current').innerHTML = hoursSpentCodingCurrent;
+  document.getElementById('hours-in-class-current').innerHTML = hoursInClassCurrent;
 
-  document.getElementById("standups").innerHTML = `${aggregatedStudentData.totalStandupsCompleted}/${aggregatedStudentData.totalStandups}`;
-
-  //Need to establish better data from server
-  document.getElementById("one-on-ones").innerHTML = `0/${aggregatedStudentData.totalOneOnOnes}`;
+  document.getElementById('total-standups').innerHTML = `${totalStandupsCompleted}/${totalStandups}`;
+  document.getElementById('total-one-on-ones').innerHTML = `0/${totalOneOnOnes}`;
 
 }
