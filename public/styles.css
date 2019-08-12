@@ -1,6 +1,5 @@
 :root {
     --blue: #293949;
-    --red: #e74c3c;
     --yellow: rgb(235, 183, 70);
     --orange: rgb(248, 133, 9);
     --teal: #48adf0;
@@ -45,7 +44,7 @@
   }
 
   .card {
-    border-top: 5px solid var(--teal);
+    border-top: 5px solid var(--orange);
     border-radius: 3px;
     background-color: white;
     margin-bottom: 20px;
@@ -53,9 +52,16 @@
     min-width: 221px;
   }
 
-  .goalMet{
-    border-top: 5px solid green;
+  .card p {
+    color: var(--orange);
+  }
 
+  .goalMet {
+    border-top: 5px solid green;
+  }
+  
+  .goalMet p {
+    color: var(--green);
   }
 
   #color-test {
